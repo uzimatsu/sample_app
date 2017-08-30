@@ -44,15 +44,6 @@ class User < ActiveRecord::Base
     relationships.find_by(followed_id: other_user.id).destroy
   end
 
-  # def fav!(other_user)
-  #   relationfavorites.create!(favorite_id: other_user.id)
-  # end
-  #
-  # def unfav!(other_user)
-  #   relationfavorites.find_by(favorite_id: other_user.id).destroy
-  # end
-
-
 
   # 記憶トークンの作成
   def User.new_remember_token
