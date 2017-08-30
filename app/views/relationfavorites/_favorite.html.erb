@@ -1,0 +1,21 @@
+
+
+<% if micropost.favorite_user(current_user) %>
+<%= button_to micropost_relationfavorite_path(count, favorited_id: micropost.id), method: :delete , id: "like-button", remote: true do %>
+<%= image_tag("icon_red_heart.png") %>
+
+<span>
+  <%= micropost.fav_count %>
+</span>
+<% end %>
+
+
+<% else %>
+<%= button_to micropost_relationfavorites_path(micropost),id: "like-button", remote: true do %>
+<%= image_tag("icon_heart.png") %>
+
+<span>
+  <%= micropost.fav_count %>
+</span>
+<% end %>
+<% end %>

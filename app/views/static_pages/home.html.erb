@@ -1,0 +1,60 @@
+<!-- ログイン後 -->
+<% if signed_in? %>
+<div class="row">
+
+  <aside class="span4">
+    <section>
+      <%= render 'shared/user_info' %>
+    </section>
+
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+
+    <section>
+      <%= render 'shared/micropost_form' %>
+    </section>
+  </aside>
+
+  <div class="span8">
+    <ul class="nav nav-tabs" role="tab">
+      <li class="active" role="presentation">
+        <a aria-controls="tab_a" data-toggle="tab" href="#tab_a" role="tab">ツイ○ト</a>
+      </li>
+
+      <li role="presentation">
+        <a aria-controls="tab_b" data-toggle="tab" href="#tab_b" role="tab">お気に入り</a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab_a" role="tabpanel">
+        <%= render 'shared/feed' %>
+      </div>
+      <div class="tab-pane" id="tab_b" role="tabpanel">
+      <p>お気に入り機能実装予定</p>
+      <p>待て、しかして希望せよ</p>
+    
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ログイン前 -->
+<% else %>
+<div class="center hero-unit">
+  <h1>ようこそ、なんちゃって○witterアプリへ！！</h1>
+
+  <h2>
+    このアプリケーションは
+    <a href="http://railstutorial.jp/">Ruby on Rails Tutorial</a>
+    を参考に作成しました
+  </h2>
+
+  <%= link_to "新規アカウント登録", signup_path,
+  class: "btn btn-large btn-primary" %>
+</div>
+
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<% end %>
