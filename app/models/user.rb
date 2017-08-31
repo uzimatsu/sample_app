@@ -25,8 +25,12 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 
-  def feed
-    Micropost.from_users_followed_by(self)
+  def feed(user)
+    Micropost.from_users_followed_by(self).including_replies(user)
+  end
+
+  def feed_message(user)
+    Micropost.from_message(user)
   end
 
 #フォローする相手が存在しているか確認
@@ -44,13 +48,6 @@ class User < ActiveRecord::Base
     relationships.find_by(followed_id: other_user.id).destroy
   end
 
-  # def fav!(other_user)
-  #   relationfavorites.create!(favorite_id: other_user.id)
-  # end
-  #
-  # def unfav!(other_user)
-  #   relationfavorites.find_by(favorite_id: other_user.id).destroy
-  # end
 
 
 

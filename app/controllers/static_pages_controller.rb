@@ -3,7 +3,14 @@ class StaticPagesController < ApplicationController
   def home
     if signed_in?
       @micropost = current_user.microposts.build
-      @feed_items = current_user.feed.paginate(page: params[:page])
+      @feed_items = current_user.feed(current_user).paginate(page: params[:page])
+      @feed_messages = current_user.feed_message(current_user).paginate(page: params[:page])
+      puts
+      p "メッセージを表示します"
+      p @feed_messages
+      p "メッセージを終了します"
+      puts
+      
       @count = Relationfavorite.where(favorited_id: params[:micropost_id])
 
     end

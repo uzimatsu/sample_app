@@ -1,0 +1,14 @@
+<li id="<%= feed_message.id %>">
+  <%= link_to gravatar_for(feed_message.user), feed_message.user %>
+  <span class="user">
+    <%= link_to feed_message.user.name, feed_message.user %>
+  </span>
+
+  <span class="content"><%= feed_message.content %></span>
+
+
+  <span class="timestamp">
+    <%= time_ago_in_words(feed_message.created_at) %>前に投稿
+  </span>
+
+</li>

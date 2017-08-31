@@ -23,7 +23,11 @@
       </li>
 
       <li role="presentation">
-        <a aria-controls="tab_b" data-toggle="tab" href="#tab_b" role="tab">お気に入り</a>
+        <a aria-controls="tab_b" data-toggle="tab" href="#tab_b" role="tab">返信</a>
+      </li>
+
+      <li role="presentation">
+        <a aria-controls="tab_c" data-toggle="tab" href="#tab_c" role="tab">お気に入り</a>
       </li>
     </ul>
 
@@ -31,10 +35,18 @@
       <div class="tab-pane active" id="tab_a" role="tabpanel">
         <%= render 'shared/feed' %>
       </div>
+
       <div class="tab-pane" id="tab_b" role="tabpanel">
-      <p>お気に入り機能実装予定</p>
-      <p>待て、しかして希望せよ</p>
-    
+
+      <ol class="microposts">
+        <%= render partial: 'shared/feed_message', collection: @feed_messages %>
+      </ol>
+
+      </div>
+
+      <div class="tab-pane active" id="tab_c" role="tabpanel">
+        <p>待て、しかして希望せよ</p>
+        <p>まじでもう少しのはずなんだ…‥ッ！！</p>
       </div>
     </div>
   </div>
