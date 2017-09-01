@@ -38,16 +38,18 @@
 
       <div class="tab-pane" id="tab_b" role="tabpanel">
 
-      <ol class="microposts">
-        <%= render partial: 'shared/feed_message', collection: @feed_messages %>
-      </ol>
+        <ol class="microposts">
+          <%= render partial: 'shared/feed_message', collection: @feed_messages %>
+        </ol>
 
       </div>
 
       <div class="tab-pane active" id="tab_c" role="tabpanel">
-        <p>待て、しかして希望せよ</p>
-        <p>まじでもう少しのはずなんだ…‥ッ！！</p>
-        
+
+        <ol class="microposts">
+          <%= render partial: 'shared/feed_like', collection: @feed_likes %>
+        </ol>
+
       </div>
     </div>
   </div>

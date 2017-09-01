@@ -1,1 +1,1 @@
-$("#like-buttons").html("<%= escape_javascript(render partial: 'like', locals: { micropost: micropost, likes: @likes}) %>")
+$("#like-buttons").html("<%= j(render partial: 'like', locals: { micropost: @micropost, likes: @likes}) %>")

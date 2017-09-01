@@ -11,4 +11,6 @@
     <%= time_ago_in_words(feed_message.created_at) %>前に投稿
   </span>
 
+  <%= render partial: 'likes/like', locals: { micropost: feed_message, likes: @likes } %>
+
 </li>

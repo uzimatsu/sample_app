@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
     Micropost.from_message(user)
   end
 
+  def feed_like(user)
+    Micropost.from_like(user)
+  end
+
 #フォローする相手が存在しているか確認
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)

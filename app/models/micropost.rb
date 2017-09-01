@@ -20,7 +20,12 @@ class Micropost < ActiveRecord::Base
     where("in_reply_to = ?", "@#{user.id.to_s}")
   end
 
-  def like_by(user)
+  def self.from_like(user)
+    ids = ("SELECT MICROPOST_ID FROM likes WHERE user_id = :user_id")
+    where("id in (#{ids})",user_id: user.id)
+  end
+
+  def like_by?(user)
     likes.find_by(user_id: user.id)
   end
 
