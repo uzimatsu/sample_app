@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     #選択したユーザーの投稿内容の表示
     @microposts = @user.microposts.paginate(page: params[:page])
-    @count = Relationfavorite.where(favorited_id: params[:micropost_id])
+    @likes = Like.where(micropost_id: params[:micropost_id])
   end
 
   #新規ユーザー登録画面

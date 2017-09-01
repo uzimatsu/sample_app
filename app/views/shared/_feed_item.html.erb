@@ -17,22 +17,9 @@
   data: { confirm: "本当に削除してもいいですか？？" },
   title: feed_item.content %>
   <% end %>
-  <div >
+  <!-- <div >
     <button type="button" name="button" id="hensin">返信</button>
-  </div>
+  </div> -->
+<%= render partial: 'likes/like', locals: { micropost: feed_item, likes: @likes } %>
+
 </li>
-
-
-<script type="text/javascript">
-(function () {
-  var btn = document.getElementById('hensin');
-
-  btn.addEventListener('click', function () {
-    var message = prompt("返信内容");
-
-    if (message) {
-      console.log(message);
-    }
-  });
-})();
-</script>

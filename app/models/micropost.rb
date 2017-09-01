@@ -1,6 +1,7 @@
 class Micropost < ActiveRecord::Base
   belongs_to :user
-  has_many :relationfavorites, foreign_key: "favorited_id", dependent: :destroy
+  has_many :likes, dependent: :destroy
+
   default_scope -> { order('created_at DESC') }
   scope :including_replies, ->(user){ where("in_reply_to = ? OR in_reply_to = ?
     OR user_id = ?", "", "@#{user.id}\-#{user.name.sub(/\s/,'-')}", user.id)}
@@ -16,11 +17,11 @@ class Micropost < ActiveRecord::Base
   end
 
   def self.from_message(user)
-    where("in_reply_to = ?", "@" + user.id.to_s)
+    where("in_reply_to = ?", "@#{user.id.to_s}")
   end
 
-  def favorite_user(other_user)
-    relationfavorites.find_by(favorite_id: other_user.id)
+  def like_by(user)
+    likes.find_by(user_id: user.id)
   end
 
   def reply_user

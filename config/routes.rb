@@ -6,7 +6,7 @@ SampleApp::Application.routes.draw do
   end
 
   resources :microposts do
-    resources :relationfavorites, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
