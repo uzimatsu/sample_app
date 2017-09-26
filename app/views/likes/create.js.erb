@@ -1,2 +1,2 @@
-$("#like-buttons").html("<%= j(render partial: 'like_yes', locals: { micropost: @micropost, likes: @likes, like: @like}) %>")
+$("#like-buttons_#{@micropost.id}").html("<%= j(render partial: 'like', locals: { micropost: @micropost, likes: @likes, like: @like}) %>")
 console.log("動いたよ！！");
