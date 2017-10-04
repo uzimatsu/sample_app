@@ -1,5 +1,0 @@
-<%= form_for(current_user.relationfavorites.build(favorite_id: @user.id),
-remote: true) do |f| %>
-  <div><%= f.hidden_field :favorite_id %></div>
-  <%= f.submit "♡", class: "btn btn-primary" %>
-<% end %>
