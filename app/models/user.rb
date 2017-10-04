@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
 
   has_many :relationfavorites, foreign_key: "favorite_id", dependent: :destroy
+  has_many :likes
 
   before_save { self.email = email.downcase }
   before_create :create_remember_token
@@ -25,8 +26,16 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 
-  def feed
-    Micropost.from_users_followed_by(self)
+  def feed(user)
+    Micropost.from_users_followed_by(self).including_replies(user)
+  end
+
+  def feed_message(user)
+    Micropost.from_message(user)
+  end
+
+  def feed_like(user)
+    Micropost.from_like(user)
   end
 
 #フォローする相手が存在しているか確認
@@ -43,7 +52,6 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy
   end
-
 
   # 記憶トークンの作成
   def User.new_remember_token

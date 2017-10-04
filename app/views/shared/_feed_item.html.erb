@@ -17,4 +17,9 @@
   data: { confirm: "本当に削除してもいいですか？？" },
   title: feed_item.content %>
   <% end %>
+  <!-- <div >
+    <button type="button" name="button" id="hensin">返信</button>
+  </div> -->
+<%= render partial: 'likes/like', locals: { micropost: feed_item, likes: @likes } %>
+
 </li>
