@@ -7,8 +7,8 @@ class LikesController < ApplicationController
     @like = Like.create(user_id: current_user.id, micropost_id: params[:micropost_id])
     @likes = Like.where(micropost_id: params[:micropost_id])
 
-    # respond_with root_url
     redirect_to root_url
+    # respond_with root_url
   end
 
   def destroy

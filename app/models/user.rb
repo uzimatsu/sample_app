@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :relationfavorites, foreign_key: "favorite_id", dependent: :destroy
   has_many :likes
 
+  default_scope -> { order('id asc') }
+
   before_save { self.email = email.downcase }
   before_create :create_remember_token
 
