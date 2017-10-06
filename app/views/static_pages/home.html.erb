@@ -17,40 +17,37 @@
   </aside>
 
   <div class="span8">
-    <ul class="nav nav-tabs" role="tab">
-      <li class="active" role="presentation">
-        <a aria-controls="tab_a" data-toggle="tab" href="#tab_a" role="tab">ツイ○ト</a>
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a aria-controls="tab_a" data-toggle="tab" href="#tab_a">ツイ○ト</a>
       </li>
 
-      <li role="presentation">
-        <a aria-controls="tab_b" data-toggle="tab" href="#tab_b" role="tab">返信</a>
+      <li>
+        <a aria-controls="tab_b" data-toggle="tab" href="#tab_b">返信</a>
       </li>
 
-      <li role="presentation">
-        <a aria-controls="tab_c" data-toggle="tab" href="#tab_c" role="tab">お気に入り</a>
+      <li>
+        <a aria-controls="tab_c" data-toggle="tab" href="#tab_c">お気に入り</a>
       </li>
     </ul>
 
     <div class="tab-content">
-      <div class="tab-pane active" id="tab_a" role="tabpanel">
+      <div class="tab-pane active" id="tab_a">
         <%= render 'shared/feed' %>
       </div>
 
-      <div class="tab-pane" id="tab_b" role="tabpanel">
-
+      <div class="tab-pane" id="tab_b">
         <ol class="microposts">
           <%= render partial: 'shared/feed_message', collection: @feed_messages %>
         </ol>
-
       </div>
 
-      <div class="tab-pane active" id="tab_c" role="tabpanel">
-
+      <div class="tab-pane" id="tab_c">
         <ol class="microposts">
           <%= render partial: 'shared/feed_like', collection: @feed_likes %>
         </ol>
-
       </div>
+
     </div>
   </div>
 
