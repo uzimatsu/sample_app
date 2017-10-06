@@ -8,9 +8,9 @@ class StaticPagesController < ApplicationController
 
       @likes = Like.where(micropost_id: params[:micropost_id])
       @feed_likes = current_user.feed_like(current_user).paginate(page: params[:page])
-      p "ファボを始めます"
-      p @feed_likes
-      p "ファボを終えます"
+      # p "ファボを始めます"
+      # p @feed_likes
+      # p "ファボを終えます"
     end
   end
 

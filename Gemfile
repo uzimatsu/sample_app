@@ -35,6 +35,8 @@ gem 'coffee-script-source', '1.8.0'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'sprockets', '2.11.0'
 
+gem 'rails-i18n'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '2.13.1'
