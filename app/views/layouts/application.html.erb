@@ -17,11 +17,15 @@
     <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
 
+    <div id="back-top" style="position:fixed;right:5px;bottom:5px">
+      <a href="#">ページの先頭へ↑</a>
+    </div>
+
     <%= yield %>
     <%= render 'layouts/footer' %>
     <!-- デバッグ内容を表示 ※開発環境に限る -->
     <%= debug(params) if Rails.env.development?%>
   </div>
-
+<script></script>
 </body>
 </html>
